@@ -1,0 +1,16 @@
+#Inference
+python main.py infer 0 0 0.0 1 rmvpe "/home/navneeth/EgoPro/dnn/RVC_INFER/test-wavs/LJ001-0001.wav" "output.wav" "/home/navneeth/EgoPro/dnn/RVC_INFER/logs/models/weights/lj-ten.pth" "/home/shaheen/rvc/RVC_INFER/logs/models/fr-mlb/added_IVF256_Flat_nprobe_1_fr-mlb-index_v2.index" False False
+
+#Inference Batch
+python main.py batch_infer 0 0 0.0 1 rmvpe "/home/navneeth/EgoPro/dnn/RVC_INFER/test-wavs" /home/navneeth/EgoPro/dnn/RVC_INFER/output" "/home/navneeth/EgoPro/dnn/RVC_INFER/logs/models/weights/fr-mlb.pth" "/home/shaheen/rvc/RVC_INFER/logs/models/fr-mlb/added_IVF256_Flat_nprobe_1_fr-mlb-index_v2.index" False False
+## Preprocess
+python3 main.py preprocess "mlb-french" "/home/navneeth/EgoPro/dnn/RVC_INFER/test-wavs" 48000
+
+## Extract Features
+python3 main.py extract "mlb-french" v2 rvmpe 1 48000
+
+## Train models
+python main.py train "mlb-french" v2 20 True False total_epoch 48000 16 0 True True True "/home/shaheen/rvc/RVC_INFER/rvc/pretraineds/pretrained_v2/G48k.pth" "/home/shaheen/rvc/RVC_INFER/rvc/pretraineds/pretrained_v2/D48k.pth"
+
+
+
